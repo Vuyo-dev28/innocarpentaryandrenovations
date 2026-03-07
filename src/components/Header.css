@@ -1,0 +1,140 @@
+.header {
+    background-color: var(--color-bg-white);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-primary);
+}
+
+.logo-link:hover {
+    color: var(--color-primary);
+}
+
+.logo-icon {
+    color: var(--color-accent);
+}
+
+.logo-text {
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--color-text-charcoal);
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.cta-button {
+    border-radius: 8px;
+    padding: 0.6em 1.5em;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(212, 163, 115, 0.2);
+}
+
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--color-primary);
+}
+
+@media (max-width: 900px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    .nav-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--color-bg-white);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1.5rem;
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        border-bottom: 2px solid var(--color-border);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        /* Hidden by default */
+        transition: clip-path 0.4s ease-in-out;
+    }
+
+    .nav-wrapper.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        /* Revealed */
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .cta-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}

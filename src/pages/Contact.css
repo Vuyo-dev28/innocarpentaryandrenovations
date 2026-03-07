@@ -1,0 +1,137 @@
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+}
+
+@media (min-width: 900px) {
+    .contact-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.contact-info-panel h2 {
+    margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+}
+
+.info-items {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.info-icon {
+    background-color: var(--color-bg-white);
+    color: var(--color-accent);
+    padding: 1rem;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-item h4 {
+    margin-bottom: 0.3rem;
+    color: var(--color-primary);
+}
+
+.info-item p {
+    color: var(--color-text-light);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.map-container {
+    height: 300px;
+    background-color: #E0D4C8;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+}
+
+.map-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--color-primary);
+    opacity: 0.6;
+}
+
+.map-pin {
+    margin-bottom: 0.5rem;
+}
+
+.contact-form-panel {
+    background-color: var(--color-bg-white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form-panel h2 {
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--color-bg-cream);
+    color: var(--color-text-charcoal);
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.2);
+}
+
+.submit-btn {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
