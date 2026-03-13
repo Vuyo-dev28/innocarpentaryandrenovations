@@ -24,7 +24,7 @@ export default function Footer() {
 
                 <div className="footer-section brand">
                     <div style={{ marginBottom: '1.5rem', marginTop: '-1rem' }}>
-                        <InnoLogo width="160" height="80" />
+                        <InnoLogo width="100" height="100" />
                     </div>
                     <p className="footer-desc">
                         Bringing your vision to life with expert craftsmanship, dedication, and premium quality materials. We build trust one project at a time.

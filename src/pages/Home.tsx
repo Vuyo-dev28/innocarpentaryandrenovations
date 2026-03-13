@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Hammer, Home as HomeIcon, PenTool, CheckCircle, Layout, Wrench, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Card from '../components/Card';
 import './Home.css';
@@ -11,45 +11,87 @@ import './Contact.css';
 const projectsData = [
     {
         id: 1,
-        title: 'Modern Oak Kitchen',
-        category: 'Renovation',
+        title: 'Custom Wall Unit Installation',
+        category: 'Renovations',
         image: '/images/renovations/image copy 14.png',
-        description: 'Complete overhaul of a 1980s kitchen, featuring custom oak cabinetry and quarts countertops.',
+        description: 'Professional mounting of entertainment systems on custom wall-mounted shelving.',
     },
     {
         id: 2,
-        title: 'Handcrafted Dining Table',
+        title: 'Custom Workshop Cabinets',
         category: 'Carpentry',
-        image: '/images/carpentary/image copy 4.png',
-        description: 'A custom built 10-seater dining table made from reclaimed walnut wood.',
+        image: '/images/carpentary/image.png',
+        description: 'Bespoke storage solutions for workshops and garages using durable hardwoods.',
     },
     {
         id: 3,
         title: 'Luxury Bathroom Remodel',
-        category: 'Renovation',
+        category: 'Renovations',
         image: '/images/renovations/after_bathroom.png',
-        description: 'Modern spa-like bathroom renovation with custom floating vanity and heated floors.',
+        description: 'Modern spa-like bathroom renovation with premium white tiles and gold-finished fixtures.',
     },
     {
         id: 4,
-        title: 'Built-in Library Shelves',
+        title: 'Multi-level Shoe Rack',
         category: 'Carpentry',
-        image: '/images/carpentary/image copy 2.png',
-        description: 'Floor-to-ceiling built-in bookcases with integrated lighting and sliding ladder.',
+        image: '/images/carpentary/image copy.png',
+        description: 'High-capacity custom shelving designed for efficient footwear organization.',
     },
     {
         id: 5,
-        title: 'Outdoor Teak Decking',
-        category: 'Carpentry',
-        image: '/images/garden/image copy 2.png',
-        description: 'Expansive multi-level outdoor deck using premium, weather-resistant teak.',
+        title: 'Professional Lawn Care',
+        category: 'Garden',
+        image: '/images/garden/image copy.png',
+        description: 'Precision lawn maintenance using professional-grade, branded equipment.',
     },
     {
         id: 6,
-        title: 'Open Concept Living Space',
-        category: 'Renovation',
+        title: 'Outdoor Patio Construction',
+        category: 'Renovations',
         image: '/images/renovations/after.png',
-        description: 'Structural renovation removing load-bearing walls for a seamless open concept flow.',
+        description: 'Installation of custom wooden pergolas and patio covers for enhanced outdoor living.',
+    },
+    {
+        id: 7,
+        title: 'Victorian Window Restoration',
+        category: 'Windows',
+        image: '/images/windows/image.png',
+        description: 'Careful restoration and double-glazing of original Victorian-style sash windows.',
+    },
+    {
+        id: 8,
+        title: 'Handcrafted Bedside Tables',
+        category: 'Carpentry',
+        image: '/images/carpentary/image copy 2.png',
+        description: 'Modern wooden pedestals with contrasting finishes and smooth-gliding drawers.',
+    },
+    {
+        id: 9,
+        title: 'Security Boundary Fencing',
+        category: 'Fencing',
+        image: '/images/Fencing/image copy.png',
+        description: 'Durable and stylish perimeter fencing designed for both privacy and security.',
+    },
+    {
+        id: 10,
+        title: 'Traditional Picket Fence',
+        category: 'Fencing',
+        image: '/images/Fencing/image.png',
+        description: 'Classic white picket fence adding charm and curb appeal to any home.',
+    },
+    {
+        id: 11,
+        title: 'Tree Pruning & Maintenance',
+        category: 'Garden',
+        image: '/images/garden/image copy 3.png',
+        description: 'Expert pruning and clearing of branches to protect rooflines and enhance safety.',
+    },
+    {
+        id: 12,
+        title: 'Glass Conservatory Upgrade',
+        category: 'Windows',
+        image: '/images/windows/image copy.png',
+        description: 'Modernizing old conservatories with energy-efficient slimline glass panels.',
     }
 ];
 
@@ -195,33 +237,55 @@ export default function Home() {
                             onClick={() => setFilter('All')}
                         >All</button>
                         <button
-                            className={`filter-btn ${filter === 'Renovation' ? 'active' : ''}`}
-                            onClick={() => setFilter('Renovation')}
+                            className={`filter-btn ${filter === 'Renovations' ? 'active' : ''}`}
+                            onClick={() => setFilter('Renovations')}
                         >Renovations</button>
                         <button
                             className={`filter-btn ${filter === 'Carpentry' ? 'active' : ''}`}
                             onClick={() => setFilter('Carpentry')}
                         >Carpentry</button>
+                        <button
+                            className={`filter-btn ${filter === 'Garden' ? 'active' : ''}`}
+                            onClick={() => setFilter('Garden')}
+                        >Garden</button>
+                        <button
+                            className={`filter-btn ${filter === 'Windows' ? 'active' : ''}`}
+                            onClick={() => setFilter('Windows')}
+                        >Windows</button>
+                        <button
+                            className={`filter-btn ${filter === 'Fencing' ? 'active' : ''}`}
+                            onClick={() => setFilter('Fencing')}
+                        >Fencing</button>
                     </div>
 
                     <motion.div
                         className="projects-grid"
                         variants={staggerContainer}
                     >
-                        {filteredProjects.map((project) => (
-                            <motion.div key={project.id} className="project-card" variants={fadeIn}>
-                                <div className="project-image-wrapper">
-                                    <img src={project.image} alt={project.title} className="project-image" />
-                                    <div className="project-overlay">
-                                        <span className="project-category">{project.category}</span>
+                        <AnimatePresence mode="popLayout">
+                            {filteredProjects.map((project) => (
+                                <motion.div
+                                    key={project.id}
+                                    className="project-card"
+                                    layout
+                                    initial={{ opacity: 0, scale: 0.9 }}
+                                    animate={{ opacity: 1, scale: 1 }}
+                                    exit={{ opacity: 0, scale: 0.9 }}
+                                    transition={{ duration: 0.4 }}
+                                >
+                                    <div className="project-image-wrapper">
+                                        <img src={project.image} alt={project.title} className="project-image" />
+                                        <div className="project-overlay">
+                                            <span className="project-category">{project.category}</span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="project-info">
-                                    <h3>{project.title}</h3>
-                                    <p>{project.description}</p>
-                                </div>
-                            </motion.div>
-                        ))}
+                                    <div className="project-info">
+                                        <h3>{project.title}</h3>
+                                        <p>{project.description}</p>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </AnimatePresence>
                     </motion.div>
                 </div>
             </motion.section>

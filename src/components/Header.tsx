@@ -29,7 +29,7 @@ export default function Header() {
         <header className="header">
             <div className="header-container">
                 <a href="#hero" onClick={(e) => scrollToSection(e as any, 'hero')} className="logo-link">
-                    <InnoLogo className="logo-icon" width="140" height="70" />
+                    <InnoLogo className="logo-icon" width="60" height="60" />
                 </a>
 
                 <div className="mobile-menu-toggle" onClick={toggleMenu}>
