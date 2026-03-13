@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Hammer, Home as HomeIcon, PenTool, CheckCircle, Layout, Wrench, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import Card from '../components/Card';
+import SEO from '../components/SEO';
 import './Home.css';
 import './Services.css';
 import './About.css';
@@ -81,14 +82,14 @@ const projectsData = [
     },
     {
         id: 11,
-        title: 'Tree Pruning & Maintenance',
+        title: 'Professional Tree Pruning & Maintenance',
         category: 'Garden',
         image: '/images/garden/image copy 3.png',
         description: 'Expert pruning and clearing of branches to protect rooflines and enhance safety.',
     },
     {
         id: 12,
-        title: 'Glass Conservatory Upgrade',
+        title: 'Energy-Efficient Glass Conservatory Upgrade',
         category: 'Windows',
         image: '/images/windows/image copy.png',
         description: 'Modernizing old conservatories with energy-efficient slimline glass panels.',
@@ -126,6 +127,11 @@ export default function Home() {
 
     return (
         <div className="home-page">
+            <SEO 
+                title="INNO Carpentry & Renovations | Expert Home Improvement"
+                description="Top-rated carpentry and home renovations. Specializing in custom kitchens, luxury bathroom remodels, garden decking, and window installations. Quality craftsmanship with precision."
+                ogTitle="INNO Carpentry & Renovations - Premium Home Solutions"
+            />
             {/* Hero Section */}
             <motion.section
                 id="hero"

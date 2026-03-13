@@ -1,8 +1,14 @@
+import SEO from '../components/SEO';
 import './About.css';
 
 export default function About() {
     return (
         <div className="about-page">
+            <SEO 
+                title="About INNO Carpentry & Renovations | Our Heritage of Quality"
+                description="Learn about the history and values of INNO Carpentry & Renovations. Building trust and exceptional craftsmanship since 2005."
+                ogTitle="Our Story - INNO Carpentry & Renovations"
+            />
             <header className="page-header">
                 <div className="page-header-container">
                     <h1>About INNO</h1>

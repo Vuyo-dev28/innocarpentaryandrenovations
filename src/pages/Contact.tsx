@@ -1,9 +1,15 @@
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Contact.css';
 
 export default function Contact() {
     return (
         <div className="contact-page">
+            <SEO 
+                title="Contact INNO Carpentry & Renovations | Free Quotes & Inquiries"
+                description="Get in touch with INNO Carpentry & Renovations for expert home improvement services. Request a free quote or visit our office. We respond within 24 hours."
+                ogTitle="Contact Us - INNO Carpentry & Renovations"
+            />
             <header className="page-header">
                 <div className="page-header-container">
                     <h1>Contact Us</h1>
